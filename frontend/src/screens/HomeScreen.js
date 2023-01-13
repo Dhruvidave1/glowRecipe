@@ -9,8 +9,8 @@ const HomeScreen = () => {
       <h1> Our Latest Products </h1>
       <Row>
         {products.map((products) => (
-          <Col sm={12} md={6} lg={4} xl={3}>
-            {/* <h3> {products.name} </h3> */}
+          // key is to make sure each thing in the list has a unique id [fixing the error]
+          <Col key={products._id} sm={12} md={6} lg={4} xl={3}>
             <Product product={products} />
           </Col>
         ))}
