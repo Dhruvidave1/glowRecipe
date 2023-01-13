@@ -191,4 +191,7 @@ const products = [
   },
 ]
 
-export default products
+// We dont have ES modules set up yet so this wont work, so want to write this in common JS
+// export default products
+
+module.exports = products
