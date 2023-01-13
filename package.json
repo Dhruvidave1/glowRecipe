@@ -1,0 +1,23 @@
+{
+  "name": "glowrecipe",
+  "version": "1.0.0",
+  "description": "MERN Shopping cart app",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhruvidave1/glowRecipe.git"
+  },
+  "author": "Dhruvi Dave",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dhruvidave1/glowRecipe/issues"
+  },
+  "homepage": "https://github.com/Dhruvidave1/glowRecipe#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
