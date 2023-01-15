@@ -9,7 +9,7 @@ import axios from 'axios'
 //  then dispatch actions to the reducer
 //  these functions are action creators, the PRODUCT_LIST_SUCCESS etc are actual actions
 export const listProducts = () => async (dispatch) => {
-  // redux thunk allows us to add a functoin within a function
+  // redux thunk allows us to add a function within a function
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST })
     const { data } = await axios.get('/api/products')
@@ -17,6 +17,7 @@ export const listProducts = () => async (dispatch) => {
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
       payload: data,
+      //   fills our state
     })
   } catch (error) {
     dispatch({
