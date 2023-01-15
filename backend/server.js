@@ -4,7 +4,8 @@ import express from 'express'
 import dotenv from 'dotenv'
 import colors from 'colors'
 import connectDB from './config/db.js'
-import products from './data/products.js'
+import productRoutes from './routes/productRoutes.js'
+import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
 dotenv.config()
 connectDB()
@@ -14,17 +15,16 @@ app.get('/', (req, res) => {
   res.send('API is running')
 })
 
-// to send all products
-app.get('/api/products', (req, res) => {
-  //this will convert it to JSON content type even tho this file is javascript objects
-  res.json(products)
-})
+app.use('/api/products', productRoutes)
 
-//to send one specific product by id
-app.get('/api/products/:id', (req, res) => {
-  const product = products.find((p) => p._id === req.params.id)
-  res.json(product)
-})
+// we will add this code just above the app.listen and at the end of all the other routes handling in tha app, therefore if none of them resolved
+// or one of them throws an error the next code will be fired off :
+
+// 404 error creator:
+app.use(notFound)
+
+//error handling middleware: middleware --> function that has access to request response cycle
+app.use(errorHandler)
 
 app.listen(
   PORT,

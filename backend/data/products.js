@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'Blueberry Bounce Gentle Cleanser',
     image: '/images/cleanser.jpg',
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '2',
     name: 'Avocado Ceramide Moisture Barrier Cleanser',
     image: '/images/cleanser2.jpg',
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: '3',
     name: 'Papaya Sorbet Enzyme Cleansing Balm',
     image: '/images/cleansingBalm.jpg',
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '4',
     name: 'Watermelon Glow AHA Night Treatment',
     image: '/images/Cream.jpg',
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '5',
     name: 'Watermelon Glow Hyaluronic Clay Pore-Tight Facial',
     image: '/images/Facial.jpg',
     description:
@@ -65,7 +60,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: '6',
     name: 'Lip Pop',
     image: '/images/lipPop.jpg',
     description:
@@ -79,7 +73,6 @@ const products = [
   },
 
   {
-    _id: '7',
     name: 'Watermelon Glow Ultra-Fine Mist',
     image: '/images/Mist.jpg',
     description:
@@ -93,7 +86,6 @@ const products = [
   },
 
   {
-    _id: '8',
     name: 'Plum Plump Hyaluronic Cream',
     image: '/images/plumpMoisturizer.jpg',
     description:
@@ -107,7 +99,6 @@ const products = [
   },
 
   {
-    _id: '9',
     name: 'Watermelon Glow Niacinamide Dew Drops',
     image: '/images/serum1.jpg',
     description:
@@ -121,7 +112,6 @@ const products = [
   },
 
   {
-    _id: '10',
     name: 'Strawberry Smooth BHA+AHA Salicylic Serum',
     image: '/images/serum2.jpg',
     description:
@@ -135,7 +125,6 @@ const products = [
   },
 
   {
-    _id: '11',
     name: 'Watermelon Glow Pink Juice Moisturizer',
     image: '/images/serum3.jpg',
     description:
@@ -149,7 +138,6 @@ const products = [
   },
 
   {
-    _id: '12',
     name: 'Guava Viamin C Dark Spot Serum',
     image: '/images/serum4.jpg',
     description:
@@ -163,7 +151,6 @@ const products = [
   },
 
   {
-    _id: '13',
     name: 'Plum Plump Hyaluronic Serum',
     image: '/images/serum5.jpg',
     description:
@@ -177,7 +164,6 @@ const products = [
   },
 
   {
-    _id: '14',
     name: 'Watermelon Glow PHA + BHA Pore-Tight Toner',
     image: '/images/toner.jpg',
     description:
