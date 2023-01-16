@@ -1,4 +1,5 @@
 import mongoose, { mongo } from 'mongoose'
+import bcrypt from 'bcryptjs'
 const userSchema = mongoose.Schema(
   {
     name: {
@@ -28,6 +29,10 @@ const userSchema = mongoose.Schema(
   }
 )
 
+// added a method to compare if the entered password by the user matches the one in the database
+userSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password)
+}
 const User = mongoose.model('User', userSchema)
 
 export default User
