@@ -30,6 +30,39 @@ const authUser = asyncHandler(async (req, res) => {
   res.send({ email, password })
 })
 
+// @desc    Register a new user
+// @route   POST /api/users
+// @access Public
+// PUT request to register a new user
+const registerUser = asyncHandler(async (req, res) => {
+  // data that is being sent from front end
+  const { name, email, password } = req.body
+  // finding a user whose email matches the email coming from front end
+  const userExists = await User.findOne({ email: email })
+
+  if (userExists) {
+    res.status(400)
+    throw new Error('User already exists with this email')
+  }
+
+  //this create will already call the .pre and .save method in userModel which will hash the password before saving
+  const user = await User.create({ name, email, password })
+  if (user) {
+    res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      // also send the token back because we want to be able to authenticate right after we register
+      token: generateToken(user._id),
+    })
+  } else {
+    res.status(400)
+    throw new Error('Invalid user data')
+  }
+  res.send({ email, password })
+})
+
 // @desc    Get user profile
 // @route   GET /api/users/profile
 // @access  private
@@ -48,4 +81,4 @@ const getUserProfile = asyncHandler(async (req, res) => {
     throw new Error('user not found')
   }
 })
-export { authUser, getUserProfile }
+export { authUser, getUserProfile, registerUser }
