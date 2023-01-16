@@ -32,7 +32,7 @@ export const login = (email, password) => async (dispatch) => {
     })
 
     // and also set this data in localStorage as userInfo(includes the token recieved)
-    localStorage.setItem('userInfo', JOSN.stringify(data))
+    localStorage.setItem('userInfo', JSON.stringify(data))
   } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,
