@@ -9,13 +9,17 @@ import {
   productListReducer,
   productDetailsReducer,
 } from './reducers/productReducers.js'
-import { userLoginReducer } from './reducers/userReducers.js'
+import {
+  userLoginReducer,
+  userRegisterReducer,
+} from './reducers/userReducers.js'
 
 // productListReducer --> productList part of the state
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   userLogin: userLoginReducer,
+  userRegister: userRegisterReducer,
 })
 
 // have to set the initial state to whatever we have from local storage

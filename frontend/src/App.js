@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import HomeScreen from './screens/HomeScreen'
 import ProductScreen from './screens/ProductScreen'
 import LoginScreen from './screens/LoginScreen.js'
+import RegisterScreen from './screens/RegisterScreen'
 
 // Arrow function
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
             <Route path='/' element={<HomeScreen />} />
             <Route path='/product/:id' element={<ProductScreen />} />
             <Route path='/login' element={<LoginScreen />}></Route>
+            <Route path='/register' element={<RegisterScreen />}></Route>
           </Routes>
         </Container>
       </main>
