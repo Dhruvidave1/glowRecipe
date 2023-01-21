@@ -15,6 +15,7 @@ import {
 	userDetailsReducer,
 	userUpdateProfileReducer,
 } from './reducers/userReducers.js';
+import { cartReducer } from './reducers/cartReducers.js';
 
 // productListReducer --> productList part of the state
 const reducer = combineReducers({
@@ -24,6 +25,7 @@ const reducer = combineReducers({
 	userRegister: userRegisterReducer,
 	userDetails: userDetailsReducer,
 	userUpdateProfile: userUpdateProfileReducer,
+	cart: cartReducer,
 });
 
 // have to set the initial state to whatever we have from local storage
@@ -31,8 +33,13 @@ const userInfoFromStorage = localStorage.getItem('userInfo')
 	? JSON.parse(localStorage.getItem('userInfo'))
 	: null;
 
+const cartItemsFromStorage = localStorage.getItem('cartItems')
+	? JSON.parse(localStorage.getItem('cartItems'))
+	: [];
+
 const initialState = {
 	userLogin: { userInfo: userInfoFromStorage },
+	cart: { cartItems: cartItemsFromStorage },
 };
 const middleware = [thunk];
 const store = createStore(

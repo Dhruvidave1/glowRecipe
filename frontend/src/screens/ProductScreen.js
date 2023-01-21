@@ -103,7 +103,7 @@ const ProductScreen = () => {
 												<Form.Control
 													className='form-select'
 													as='select'
-													value={quantity}
+													value={product.quantity}
 													onChange={(e) => setQuantity(e.target.value)}
 												>
 													{/* if count in stock = 5, then [0,1,2,3,4] is the array
