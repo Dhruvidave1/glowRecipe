@@ -15,11 +15,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listProductDetails } from '../actions/productActions';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
+import { useNavigate } from 'react-router';
 
-const ProductScreen = (history) => {
+const ProductScreen = () => {
 	// quantity is a part of component level state, so for that we have to use useState()
-	const [qty, setQty] = useState(1);
-
+	const [quantity, setQuantity] = useState(1);
+	const navigate = useNavigate();
 	const params = useParams();
 	const dispatch = useDispatch();
 	// get product data
@@ -32,7 +33,7 @@ const ProductScreen = (history) => {
 	}, [dispatch]);
 
 	const addToCartHandler = () => {
-		history.push(`/cart/${params.id}?qty=${qty}`);
+		navigate(`/cart/${params.id}?qty=${quantity}`);
 	};
 	return (
 		<>
@@ -102,8 +103,8 @@ const ProductScreen = (history) => {
 												<Form.Control
 													className='form-select'
 													as='select'
-													value={qty}
-													onChange={(e) => setQty(e.target.value)}
+													value={quantity}
+													onChange={(e) => setQuantity(e.target.value)}
 												>
 													{/* if count in stock = 5, then [0,1,2,3,4] is the array
                           then we can map through this, and display an option with key & value & displayed text */}
