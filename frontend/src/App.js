@@ -11,6 +11,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import CartScreen from './screens/CartScreen';
 import ShippingScreen from './screens/ShippingScreen';
 import PaymentScreen from './screens/PaymentScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
 
 // Arrow function
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
 						<Route path='/cart/:id?' element={<CartScreen />}></Route>
 						<Route path='/login/shipping' element={<ShippingScreen />}></Route>
 						<Route path='/payment' element={<PaymentScreen />}></Route>
+						<Route path='/placeorder' element={<PlaceOrderScreen />}></Route>
 					</Routes>
 				</Container>
 			</main>
