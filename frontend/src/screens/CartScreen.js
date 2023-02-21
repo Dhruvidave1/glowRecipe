@@ -11,7 +11,7 @@ import {
 	Button,
 	Card,
 } from 'react-bootstrap';
-import { addToCart } from '../actions/cartActions';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 
 const CartScreen = () => {
 	const params = useParams();
@@ -32,11 +32,12 @@ const CartScreen = () => {
 	}, [dispatch, productId, qty]);
 
 	const removeFromCartHandler = (id) => {
-		// dispatch(removeFromCart(id));
+		dispatch(removeFromCart(id));
 	};
 
 	const checkoutHandler = () => {
 		// login first, if already logged in go to shipping
+		// full navigation link looks like this: http://localhost:3000/login/shipping
 		navigate('/login?redirect=shipping');
 	};
 	return (
@@ -67,6 +68,7 @@ const CartScreen = () => {
 											onChange={(e) =>
 												dispatch(
 													// item.product = id
+													//if you change quantity then addToCart is fired again
 													addToCart(item.product, Number(e.target.value))
 												)
 											}
@@ -103,13 +105,16 @@ const CartScreen = () => {
 							</h2>
 							$
 							{cartItems
+								//acc is the accumulator, item is the current item
 								.reduce((acc, item) => acc + item.qty * item.price, 0)
 								.toFixed(2)}
+							{/* 2 decimal places */}
 						</ListGroup.Item>
 						<ListGroup.Item>
 							<Button
 								type='button'
 								className='btn-block'
+								// disabled if there is nothing in the cart
 								disabled={cartItems.length === 0}
 								onClick={checkoutHandler}
 							>
