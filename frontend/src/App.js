@@ -9,6 +9,7 @@ import LoginScreen from './screens/LoginScreen.js';
 import RegisterScreen from './screens/RegisterScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import CartScreen from './screens/CartScreen';
+import ShippingScreen from './screens/ShippingScreen';
 
 // Arrow function
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
 						<Route path='/register' element={<RegisterScreen />}></Route>
 						<Route path='/profile' element={<ProfileScreen />}></Route>
 						<Route path='/cart/:id?' element={<CartScreen />}></Route>
+						<Route path='/login/shipping' element={<ShippingScreen />}></Route>
 					</Routes>
 				</Container>
 			</main>

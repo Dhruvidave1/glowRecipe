@@ -18,8 +18,9 @@ const CartScreen = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const dispatch = useDispatch();
+	// for non optional parameters
 	const productId = params.id;
-	// will give us whatever is after the ? in the link
+	// will give us whatever is after the ? in the link --> optional params
 	const qty = location.search ? Number(location.search.split('=')[1]) : 1;
 
 	const cart = useSelector((state) => state.cart);
