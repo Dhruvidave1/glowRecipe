@@ -3,6 +3,7 @@ import {
 	CART_ADD_ITEM,
 	CART_REMOVE_ITEM,
 	CART_SAVE_SHIPPING_ADDRESS,
+	CART_SAVE_PAYMENT_METHOD,
 } from '../constants/cartConstants';
 
 // getState allows us to get access to the entire state tree, so we can
@@ -37,12 +38,20 @@ export const removeFromCart = (id) => (dispatch, getState) => {
 
 export const saveShippingAddress = (data) => (dispatch) => {
 	dispatch({
-		// dispatching an action of type CART_REMOVE_ITEM
 		type: CART_SAVE_SHIPPING_ADDRESS,
-		// dispatching payload of type id that was passed into the removeFromCart function
+
 		payload: data,
 	});
 
-	// after dispatching, getting the current state of the store and setting cartItems to new cartItems
 	localStorage.setItem('shippingAddress', JSON.stringify(data));
+};
+
+export const savePaymentMethod = (data) => (dispatch) => {
+	dispatch({
+		type: CART_SAVE_PAYMENT_METHOD,
+
+		payload: data,
+	});
+
+	localStorage.setItem('paymentMethod', JSON.stringify(data));
 };
